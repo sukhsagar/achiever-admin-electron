@@ -1,0 +1,19 @@
+{
+  "name": "achiever-admin-electron",
+  "version": "1.0.0",
+  "description": "Hybrid apps for admin panel of meta-achievers portal",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/sukhsagar/achiever-admin-electron",
+  "keywords": [
+    "Electron",
+    "TSS",
+    "meta-achievers"
+  ],
+  "author": "Sukhsagar",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  }
+}

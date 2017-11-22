@@ -1,0 +1,19 @@
+.nav-tabs.nav-justified {
+  margin-bottom: 15px;
+}
+
+.error{
+  color:red;
+  display: block;
+  font-size: 15px;
+}
+.no-error {
+  display: none;
+}
+footer div{
+  padding:10px;
+  margin:0 auto;
+}
+footer p {
+  margin:0;
+}

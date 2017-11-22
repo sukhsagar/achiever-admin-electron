@@ -1,0 +1,223 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>achievements</title>
+    <meta name="description" content="achievers">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- css file -->
+    <link rel="stylesheet" href="css/add_achievement.css" />
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data.toggle="collapse" data.target="#navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand">Achievements</a>
+        </div><!--Navbar Header-->
+        <div class="collapse navbar-collapse" id="#navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="add_achievement.html">Add Achievement</a></li>
+            <li><a href="add_achiever.html">Add Achiever</a></li>
+          </ul>
+        </div>
+      <div><!--End Container-->
+    </nav><!--End Navbar-->
+
+    <!--jumbotron-->
+    <div class="jumbotron">
+      <div class="container text-center bg-primary">
+        <h1 class="text-white">Achievements</h1>
+        <p class="text-white">A dream becomes a goal when action is taken toward its achievement.</p>
+      </div>
+    </div><!--End jumbotron-->
+
+
+    <div class="container">
+      <section>
+      <div class="well">
+        <div class="text-center text-primary">
+          <hr>
+          <h3>Your Achievements</h3>
+          <p>Enter your details</p>
+
+          <form class="form-inline">
+            <div>
+              <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li role="presentation"  class="active" id="single" onclick="setSingle()">
+                  <a href="#individualEntry" aria-controls="individualEntry" role="tab" data-toggle="tab">Individual Achievement</a>
+                </li>
+                <li role="presentation" id="team" onclick="setTeam()">
+                  <a href="#teamEntry" aria-controls="teamEntry" role="tab" data-toggle="tab">Team Achievement</a>
+                </li>
+              </ul>
+              <!-- to be changed on basis of selected tab -->
+              <div class="tab-content">
+                <!-- individual event -->
+                <div role="tabpanel" class="tab-pane active"  id="individualEntry" >
+                  <div class="form-group">
+                    <label for="roll_no">Achiever Roll Number</label>
+                    <input type="text" class="form-control" id="roll_no" placeholder="Roll No">
+                    <input type="button" class="btn btn-success" onClick="fetchName()" value="GET" />
+                    <span id="errorRollNo" class="error no-error">required</span>
+                  </div><hr>
+
+                  <div class="form-group">
+                    <label for="name">Name </label>
+                    <label id="name"> </label>
+                  </div><hr>
+                </div>
+                <!-- individual event end -->
+                <!-- team event -->
+                <div role="tabpanel" class="tab-pane"  id="teamEntry">
+                  <div class="form-group">
+                    <label for="name">Enter Team Size </label>
+                    <input type="number" id="teamSize" min=2 class="form-control" onblur="createTeamInput()" placeholder="Team size" />
+                  </div><hr>
+                  <div id="teamRollno"></div>
+                </div>
+                <!-- team event end -->
+              </div>
+              <!-- tab content end -->
+            </div>
+            <div class="form-group">
+              <label for="category">Category </label>
+              <select  class="form-control" id="category">
+                <option value="Select">Select Category</option>
+                <option value="T">Technical</option>
+                <option value="NT">Non-Technical</option>
+              </select>
+              <span id="errorCategory" class="error no-error">required</span>
+            </div><hr>
+
+            <div class="form-group">
+              <label for="semester">Semester</label>
+              <select  class="form-control" id="semester" onChange="fillYear()">
+                <option value="Select">Select Semester</option>
+                <option value="E">Even</option>
+                <option value="O">Odd</option>
+              </select>
+              <span id="errorSem" class="error no-error">required</span>
+            </div><hr>
+
+            <div class="form-group">
+              <label for="year">Year</label>
+              <select  class="form-control" id="year" onChange="fillMonth()">
+                <option value="Select">Select Year</option>
+              </select>
+              <span id="errorYear" class="error no-error">required</span>
+            </div><hr>
+
+            <div class="form-group">
+              <label for="month">Month</label>
+              <select  class="form-control" id="month">
+                <option value="Select">Select Month</option>
+              </select>
+              <span id="errorMonth" class="error no-error">required</span>
+            </div><hr>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="your description">
+              <span id="errorDesc" class="error no-error">required</span>
+            </div><hr>
+
+            <div class="form-group">
+              <label for="positionHolder">Position Holder</label>
+              <select  class="form-control" id="positionHolder" onchange="toggleEventDetail()">
+                <option value="Select">Select</option>
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+              </select>
+              <span id="errorPositionHolder" class="error no-error">required</span>
+            </div><hr>
+            <!-- competition viewable if positionHolder==Yes -->
+            <div id="competition" style="display:none;">
+              <div class="form-group">
+                <label for="level">Level</label>
+                <select  class="form-control" id="level">
+                  <option value="null">Select</option>
+                  <option value="1">GNDU Asr/ District</option>
+                  <option value="2">Inter-college/ State</option>
+                  <option value="3">Inter-University/ National</option>
+                </select>
+                <span id="errorLevel" class="error no-error">required</span>
+              </div><hr>
+
+              <div class="form-group">
+                <label for="position">Position</label>
+                <select  class="form-control" id="position">
+                  <option value="null">Select</option>
+                  <option value="1">First</option>
+                  <option value="2">Second</option>
+                  <option value="3">Third</option>
+                </select>
+                <span id="errorPosition" class="error no-error">required</span>
+              </div><hr>
+            </div>
+            <!-- other event viewable if positionHolder==No -->
+            <div id="otherEvent"  style="display:none;">
+              <div class="form-group">
+                <label for="eventType">Event Type</label>
+                <select  class="form-control" id="eventType">
+                  <option value="null">Select</option>
+                  <option value="1">Internship / Live project (Individual) / Contribution to Open Source Community</option>
+                  <option value="11">Team project (LIVE) OR Development of TSS website</option>
+                  <option value="2">Delivered lectures in Flash Classes / Presented a Research Paper</option>
+                  <option value="3">Delivered a Seminar</option>
+                  <option value="4">Delivered a Workshop</option>
+                  <option value="5">Event Organisor</option>
+                  <option value="6">Coordinator (Event/ Seminar)</option>
+                  <option value="7">Best Performer / Anchor</option>
+              	  <option value="7">Recieved an NCC Certificate or Medal</option>
+                  <option value="8">Attended a Camp</option>
+                  <option value="9">Certification (Recognised)</option>
+                  <option value="10">Published an article in magazine or a newspaper</option>
+                </select>
+                <span id="errorEventType" class="error no-error">required</span>
+              </div><hr>
+            </div>
+
+            <input type="button" class="btn btn-primary" onClick="validate()" value="Submit" />
+            <hr>
+          </form>
+        </div><!--End container-->
+      </div><!--End well-->
+    </section>
+    </div>
+
+    <!--footer-->
+    <footer>
+      <div class="container text-center bg-primary">
+        <p class="text-white">
+          &copy; Copyrights @ <span id="thisYear"></span> Reserved With Rajat & Sukhsagar
+          <br />
+          Design Credits Tejpal Kaur.
+        </p>
+      </div><!--End container-->
+    </footer>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script><script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="js/app.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="js/add_achievement.js"></script>
+    <script>if (window.module) module = window.module;</script>
+  </body>
+</html>

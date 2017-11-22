@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>achievers</title>
+    <meta name="description" content="achievers">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- css file -->
+    <link rel="stylesheet" href="css/add_achiever.css" />
+  </head>
+  <body onload="checkForReturn()">
+    <!--navbar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data.toggle="collapse" data.target="#navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand">Achievements</a>
+        </div><!--Navbar Header-->
+        <div class="collapse navbar-collapse" id="#navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="add_achievement.html">Add Achievement</a></li>
+            <li><a href="add_achiever.html">Add Achiever</a></li>
+          </ul>
+        </div>
+      <div><!--End Container-->
+    </nav><!--End Navbar-->
+
+    <!--jumbotron-->
+    <div class="jumbotron">
+      <div class="container text-center bg-primary">
+        <h1 class="text-white">Achievements</h1>
+        <p class="text-white">A dream becomes a goal when action is taken toward its achievement.</p>
+      </div>
+     </div><!--End jumbotron-->
+
+
+    <div class="container">
+      <section >
+        <div class="well">
+          <div class="container text-center text-primary">
+            <hr>
+            <h3>Your Introduction</h3>
+            <p>Enter your details</p>
+
+            <form action="add_achiever.html" class="form-inline">
+              <div class="form-group">
+                <label for="roll_no">Roll number</label>
+                <input type="text" class="form-control" id="roll_no" onblur="fetchName()" placeholder="your roll number">
+                <!-- <input type="button" class="btn btn-success" onClick="fetchName()" value="CHECK" /> -->
+                <span id="errorRollNo" class="error no-error">required</span>
+              </div><hr>
+              
+              <div class="form-group">
+                <label for="first_name">First name  </label>
+                <input type="text" class="form-control" id="first_name" placeholder="your first_name">
+                <span id="errorFirstName" class="error  no-error">required</span>
+              </div><hr>
+
+              <div class="form-group">
+                <label for="last_name">Last name</label>
+                <input type="text" class="form-control" id="last_name" placeholder="your last_name">
+              </div><hr>
+
+
+              <div class="form-group">
+                <label for="gender">gender</label>
+                <select  class="form-control" id="gender">
+                  <option value="Select">Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <span id="errorGender" class="error no-error">required</span>
+              </div><hr>
+
+              <div class="form-group">
+                <label for="mobile_no">Mobile number</label>
+                <input type="text" class="form-control" id="mobile_no" placeholder="your mobile number">
+                <span id="errorMobileNo" class="error no-error">required & 10 digits only</span>
+              </div><hr>
+
+              <div class="form-group">
+                <label for="batch">Batch</label>
+                <select  class="form-control" id="batch">
+                  <option value="Select">Select last year of batch</option>
+                </select>
+                <span id="errorBatch" class="error no-error">required</span>
+              </div><hr>
+
+              <div class="form-group">
+                <label for="class">Class</label>
+                <select  class="form-control" id="class">
+                  <option value="Select">Select class</option>
+                  <option value="MCA FYIC">MCA FYIC</option>
+                  <option value="MCA TYC">MCA TYC</option>
+                </select>
+                <span id="errorClass" class="error no-error">required</span>
+              </div><hr>
+
+              <div class="form-group">
+                <label for="picture">Picture</label>
+                <input id="displayPicture" type="file" name="pic" accept="image/*">
+              </div><hr>
+
+              <input type="button" class="btn btn-primary" onClick="validate()" value="Submit" />
+              <hr>
+            </form>
+          </div><!--End container-->
+        </div><!--End well-->
+      </section>
+    </div>
+
+    <!--footer-->
+    <footer>
+      <div class="container text-center bg-primary">
+        <p class="text-white">
+          &copy; Copyrights @ <span id="thisYear"></span> Reserved With Rajat & Sukhsagar
+          <br />
+          Design Credits Tejpal Kaur.
+        </p>
+      </div><!--End container-->
+    </footer>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script><script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="js/app.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+    <script src="js/add_achiever.js"></script>
+    <script>if (window.module) module = window.module;</script>
+  </body>
+</html>
